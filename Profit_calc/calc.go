@@ -7,12 +7,9 @@ func main(){
 	var expenses float64
 	var taxRate float64
 
-	fmt.Print("Enter your revenue: ")
-	fmt.Scan(&revenue)
-	fmt.Print("Enter your profit: ")
-	fmt.Scan( &expenses)
-	fmt.Print("Enter your tax rate: ")
-	fmt.Scan(&taxRate)
+	getUserInput("Enter your revenue: ", &revenue)
+	getUserInput("Enter your profit: ", &expenses)
+	getUserInput("Enter your tax rate: ", &taxRate)
 
 	EBT := revenue - expenses
 	var profit = EBT*(1-taxRate/100)
@@ -22,4 +19,9 @@ func main(){
 	fmt.Println("Profit", profit)
 	fmt.Println("Ratio", ratio)
 
+}
+
+func getUserInput(text string, variable *float64){
+	fmt.Print(text)
+	fmt.Scan(variable)
 }
